@@ -3,8 +3,7 @@ var Emitter = require('post');
 
 describe('Emitter', function() {
 	var post = null;
-	
-	beforeEach(function() {
+		beforeEach(function() {
 		post = new Emitter();
 	});
 
@@ -13,10 +12,10 @@ describe('Emitter', function() {
 	});
 
 	it('should be an emitter', function() {
-		assert.equal(typeof post.on, 'function');
-		assert.equal(typeof post.once, 'function');		
-		assert.equal(typeof post.emit, 'function');
-		assert.equal(typeof post.off, 'function');
+		assert.equal(typeof Emitter.prototype.on, 'function');
+		assert.equal(typeof Emitter.prototype.once, 'function');		
+		assert.equal(typeof Emitter.prototype.emit, 'function');
+		assert.equal(typeof Emitter.prototype.off, 'function');
 	});
 
 	it('should behave as a regular emitter', function() {
@@ -24,6 +23,7 @@ describe('Emitter', function() {
 		post.on('message', function(val) {
 			message = val;
 		});
+
 		post.emit('message', 'post');
 		post.off();
 		post.emit('message', 'bredele');
@@ -48,10 +48,10 @@ describe("Cross origin messages", function() {
 			assert.equal(val, 'this is a test');
 			done();
 		});
-
 		//post message on same origin
 	  window.postMessage(['message', 'this is a test'], window.location.href);
 	});
+
 
 	it('should emit post messages', function(done) {
 		window.addEventListener('message', function(ev) {
@@ -61,7 +61,6 @@ describe("Cross origin messages", function() {
 
 		post.emit('message', 'this is a test')();
 	});
-
 	
 });
 

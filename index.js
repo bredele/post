@@ -1,5 +1,11 @@
 var Emitter = require('emitter');
 
+//TODO: we could encapsulte an id into the postMessage message
+//Example
+//  message = [...];
+//  message._id = "...";
+//  
+// but it'd mean that it could only receive messages from an other post component.
 
 /**
  * Expose 'PostEmitter'
@@ -21,7 +27,9 @@ function PostEmitter() {
 	this._listener = function(ev) {
 		//check origin
 		//then
-		_this.emit.apply(_this, ev.data);
+		var data = ev.data;
+		//avoid none wished messages
+		if(data instanceof Array) _this.emit.apply(_this, data);
 	};
 	window.addEventListener('message', this._listener);
 }
@@ -29,6 +37,14 @@ function PostEmitter() {
 
 Emitter(PostEmitter.prototype);
 
+
+/**
+ * Emit local or cross-origin messages.
+ * @param {String} topic
+ * @param {Amy}  
+ * @return {Function}
+ * @api public
+ */
 
 PostEmitter.prototype.emit = function() {
 	var args = arguments;
