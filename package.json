@@ -1,0 +1,33 @@
+{
+  "name": "post",
+  "version": "0.0.1",
+  "description": "Emitter-like component to create safe cross origin communication",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bredele/post.git"
+  },
+  "keywords": [
+    "post-message",
+    "cross",
+    "origin",
+    "communication",
+    "emitter",
+    "publish",
+    "subscribe"
+  ],
+  "author": "Olivier Wietrich <olivier.wietrich@gmail.com> (http://github.com/bredele)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bredele/post/issues"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1"
+  }
+}
