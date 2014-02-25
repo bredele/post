@@ -1,0 +1,14 @@
+{
+  "name": "post",
+  "repo": "bredele/post",
+  "description": "Emitter-like component that enables safe cross origin communication",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
