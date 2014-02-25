@@ -1,4 +1,7 @@
-var Emitter = require('emitter');
+var Emitter = require('emitter'),
+		attach = window.addEventListener ? 'addEventListener' : 'attachEvent',
+		detach = window.removeEventListener ? 'removeEventListener' : 'detachEvent',
+		prefix = attach !== 'addEventListener' ? 'on' : '';
 
 //TODO: we could encapsulte an id into the postMessage message
 //Example
@@ -28,10 +31,10 @@ function PostEmitter() {
 		//check origin
 		//then
 		var data = ev.data;
-		//avoid none wished messages
-		if(data instanceof Array) _this.emit.apply(_this, data);
+
+		_this.emit.apply(_this, data instanceof Array ? data : [data]);
 	};
-	window.addEventListener('message', this._listener);
+	window[attach](prefix + 'message', this._listener);
 }
 
 
@@ -61,5 +64,5 @@ PostEmitter.prototype.emit = function() {
  */
 
 PostEmitter.prototype.dispose = function() {
-	window.removeEventListener('message', this._listener);
+	window[detach](prefix + 'message', this._listener);
 };
