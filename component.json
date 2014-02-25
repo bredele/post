@@ -4,8 +4,12 @@
   "description": "Emitter-like component that enables safe cross origin communication",
   "version": "0.0.1",
   "keywords": [],
-  "dependencies": {},
-  "development": {},
+  "dependencies": {
+    "component/emitter" : "*"
+  },
+  "development": {
+    "component/assert" : "*"
+  },
   "license": "MIT",
   "main": "index.js",
   "scripts": [
