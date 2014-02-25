@@ -8,17 +8,33 @@ module.exports = PostEmitter;
 
 /**
  * PostEmitter constructor.
+ * Listen local and remote messages.
+ * 
  * @api public
  */
 
 function PostEmitter() {
-
+	var _this = this;
+	//might be global
+	this._listener = function(ev) {
+		//check origin
+		//then
+		_this.emit.apply(_this, ev.data);
+	};
+	window.addEventListener('message', this._listener);
 }
+
 
 require('emitter')(PostEmitter.prototype);
 
+
+/**
+ * Remove post message listener.
+ * @api public
+ */
+
 PostEmitter.prototype.dispose = function() {
-	// body...
+	window.removeEventListener('message', this._listener);
 };
 
 // /**

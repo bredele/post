@@ -31,3 +31,26 @@ describe('Emitter', function() {
 	});
 
 });
+
+describe("Cross origin messages", function() {
+	var post = null;
+	beforeEach(function() {
+		post = new Emitter();
+	});
+
+	afterEach(function() {
+		post.dispose();
+	});
+
+	it("should listen post messages", function(done) {
+		post.on('message', function(val) {
+			assert.equal(val, 'this is a test');
+			done();
+		});
+
+		//post message on same origin
+	  window.postMessage(['message', 'this is a test'], window.location.href);
+	});
+	
+});
+
