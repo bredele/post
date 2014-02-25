@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "component/emitter" : "*"
+    "component/emitter" : "1.1.2"
   },
   "development": {
     "component/assert" : "*"

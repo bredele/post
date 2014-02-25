@@ -3,6 +3,7 @@ var Emitter = require('post');
 
 describe('Emitter', function() {
 	var post = null;
+	
 	beforeEach(function() {
 		post = new Emitter();
 	});
@@ -51,6 +52,16 @@ describe("Cross origin messages", function() {
 		//post message on same origin
 	  window.postMessage(['message', 'this is a test'], window.location.href);
 	});
+
+	it('should emit post messages', function(done) {
+		window.addEventListener('message', function(ev) {
+			assert.equal(ev.data[1], 'this is a test');
+			done();
+		});
+
+		post.emit('message', 'this is a test')();
+	});
+
 	
 });
 
