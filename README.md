@@ -5,7 +5,13 @@ Emitter-like component that enables safe cross origin communication. Its nice an
 
 ## Installation
 
+component:
+
     $ component install bredele/post
+
+browserify (nodejs):
+
+    $ npm install post
 
 standalone:
 
