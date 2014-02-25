@@ -31,7 +31,6 @@ function PostEmitter() {
 		//check origin
 		//then
 		var data = ev.data;
-
 		_this.emit.apply(_this, data instanceof Array ? data : [data]);
 	};
 	window[attach](prefix + 'message', this._listener);
@@ -65,4 +64,5 @@ PostEmitter.prototype.emit = function() {
 
 PostEmitter.prototype.dispose = function() {
 	window[detach](prefix + 'message', this._listener);
+	this.off();
 };

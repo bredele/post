@@ -7,4 +7,7 @@ components: component.json
 clean:
 	rm -fr build components
 
+post.js: components
+	@component build --standalone post --name post --out .	
+
 .PHONY: clean
