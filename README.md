@@ -22,33 +22,12 @@ emitter or post messages safely to a cross origin.
 
 ### Post(obj)
 
-  It may alse be used as a mixin. For example
-  a "plain" object may become a post emitter, or you may
-  extend an existing prototype.
-
-  As  `Post` instance:
+  `Post` instance:
 
 ```js
 var Post = require('post');
 var post = new Post();
 post.emit('something');
-```
-
-  As a mixin:
-
-```js
-var Post = require('post');
-var github = { name: 'bredele' };
-Post(user);
-
-github.emit('i create a new repo');
-```
-
-  As a prototype mixin:
-
-```js
-var Emitter = require('post');
-Emitter(Github.prototype);
 ```
 
 ### .emit(event, ...)

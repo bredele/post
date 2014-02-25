@@ -24,7 +24,7 @@ module.exports = PostEmitter;
  * @api public
  */
 
-function PostEmitter() {
+function PostEmitter(obj) {
 	var _this = this;
 	//might be global
 	this._listener = function(ev) {
