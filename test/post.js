@@ -59,8 +59,14 @@ describe("Cross origin messages", function() {
 			done();
 		});
 
+		//emit locally: post.on will be executed twice
 		post.emit('message', 'this is a test')();
 	});
 	
 });
+
+// describe("Accepted origins", function() {
+	
+// });
+
 
